@@ -3,6 +3,7 @@ extends KinematicBody
 
 func _init():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Inventory()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +20,9 @@ func _physics_process(delta):
 	
 	var move = false
 	var dir_vec = Vector2.ZERO
-		
+	
+	if Input.is_action_pressed("interact")
+		self.
 	if Input.is_action_pressed("move_up"):
 		dir_vec.x = -1
 		move = true

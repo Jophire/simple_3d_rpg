@@ -14,11 +14,8 @@ script = ExtResource( 2 )
 
 [node name="Animated Human" parent="." instance=ExtResource( 1 )]
 
-[node name="Skeleton" parent="Animated Human/Human Armature" index="0"]
-bones/11/bound_children = [  ]
-
 [node name="BoneAttachment" parent="Animated Human/Human Armature/Skeleton" index="1"]
-transform = Transform( 0.0815672, 0.14636, -0.985862, -0.978214, -0.177715, -0.107318, -0.190909, 0.973138, 0.128676, 1.55655, -0.911013, -4.32568 )
+transform = Transform( 0.715871, 0.203483, -0.667923, -0.527479, 0.784372, -0.326384, 0.457488, 0.585965, 0.668843, 1.2876, 1.19545, -3.65821 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 2.70304, 0 )
