@@ -9,7 +9,7 @@ var stored_items:Dictionary
 var current_weight:Int
 
 func _init():
-	super()
+	super._init()
 	pass
 	
 ##Attempt to store a given item in given position.
@@ -19,8 +19,8 @@ func store_item(o:Item,l:Vector2):
 			##needs work
 		1:
 			if o.weight < max_weight_item and o.weight+current_weight < max_weight:
-				stored_items.append{o.get_instance_id ( ) : o}
-			else
+				stored_items{o.get_instance_id() = o}
+			else:
 				return o,false
 		0:
 			##needs work

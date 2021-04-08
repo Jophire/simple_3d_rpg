@@ -1,21 +1,13 @@
 class_name Item
 enum Tag {DEBUG}
 
-var weight = 0
-var value = 0
-var name = "Default Item"
-var can_drop = true
-var can_sell = true
+var weight:Float
+var value:Int
+var name:String
+var can_drop:Bool
+var can_sell:Bool
 
-var tags = [Tag.DEBUG]
-
-var sell_values = {
-	purc_value=1.0f, 	##The upper limit npcs will sells item for.
-	sell_value=1.0f, 	##The upper limit npcs will pay for an item.
-	desireability=1 	## 0 - 1 how much do people want this.
-	}
-
-
+var tags:Array
 
 func _init():
 	self.weight = 0
@@ -23,6 +15,7 @@ func _init():
 	self.name = "Copper Piece"
 	self.can_drop = true
 	self.can_sell = true
+	self.tags=[Tag.DEBUG]
 	pass # Replace with function body.
 
 func _init(w,v,n,cd,cs):
@@ -31,9 +24,5 @@ func _init(w,v,n,cd,cs):
 	self.name = n
 	self.can_drop = cd
 	self.can_sell = cs
+	self.tags=[Tag.DEBUG]
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

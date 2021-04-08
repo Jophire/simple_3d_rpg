@@ -1,10 +1,11 @@
 extends KinematicBody
-
+var inventory:Storage
 
 func _init():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Inventory()
-
+	inventory = Storage.new(w=0,v=0,n="Player Inventory",cd=false,cs=false,)
+	pass
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -21,8 +22,6 @@ func _physics_process(delta):
 	var move = false
 	var dir_vec = Vector2.ZERO
 	
-	if Input.is_action_pressed("interact")
-		self.
 	if Input.is_action_pressed("move_up"):
 		dir_vec.x = -1
 		move = true
