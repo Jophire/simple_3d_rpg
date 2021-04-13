@@ -1,9 +1,11 @@
 extends KinematicBody
-var inventory:Storage
-
+signal damage_event(min_dmg,max_dmg)
+var dmg_ub
+var dmg_lb
 func _init():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	inventory = Storage.new(w=0,v=0,n="Player Inventory",cd=false,cs=false,)
+	dmg_ub = 1
+	dmg_lb = 1
 	pass
 	
 # Called when the node enters the scene tree for the first time.
@@ -49,8 +51,19 @@ func _physics_process(delta):
 	else:
 		$"Animated Human/AnimationTree"["parameters/state/current"] = 2
 	
-	if Input.is_action_pressed("punch"):
+
+	if Input.is_action_just_pressed("punch"):
+		dmg_lb =1
+		dmg_ub =1
+	elif Input.is_action_pressed("punch"):
+		dmg_lb+=1
+		dmg_ub+=2
+	elif Input.is_action_just_released("punch"):
 		$"Animated Human/AnimationTree"["parameters/punching/active"] = true
+		$"Animated Human/Human Armature/Skeleton/BoneAttachment/damage_collider".set_monitoring(true)
+	
+	if $"Animated Human/AnimationTree"["parameters/punching/active"] == false:
+		$"Animated Human/Human Armature/Skeleton/BoneAttachment/damage_collider".set_monitoring(false)
 	
 	var rmt = $"Animated Human/AnimationTree".get_root_motion_transform()
 	var velocity = ((transform * rmt).origin - transform.origin) / delta
@@ -60,3 +73,5 @@ func _physics_process(delta):
 	
 	self.move_and_slide(velocity, Vector3.UP)
 	
+func _on_damage_collider_body_entered(body):
+	emit_signal("damage_event",dmg_lb,dmg_ub)
