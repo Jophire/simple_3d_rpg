@@ -1,7 +1,8 @@
 extends KinematicBody
-signal damage_event(min_dmg,max_dmg)
+signal damage_event(dmg)
 var dmg_ub
 var dmg_lb
+var rng = RandomNumberGenerator.new()
 func _init():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	dmg_ub = 1
@@ -10,6 +11,7 @@ func _init():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
 	pass
 
 
@@ -73,5 +75,6 @@ func _physics_process(delta):
 	
 	self.move_and_slide(velocity, Vector3.UP)
 	
-func _on_damage_collider_body_entered(body):
-	emit_signal("damage_event",dmg_lb,dmg_ub)
+func _on_damage_collider_area_entered(area):
+	area.emit_signal("damage_event",rng.randf_range(dmg_lb, dmg_ub))
+	pass # Replace with function body.

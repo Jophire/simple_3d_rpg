@@ -8,32 +8,9 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Reference",
-"class": "Inventory",
-"language": "GDScript",
-"path": "res://Inventory.gd"
-}, {
-"base": "Reference",
-"class": "Item",
-"language": "GDScript",
-"path": "res://Item.gd"
-}, {
-"base": "Item",
-"class": "Spell",
-"language": "GDScript",
-"path": "res://Spell.gd"
-}, {
-"base": "Item",
-"class": "Storage",
-"language": "GDScript",
-"path": "res://Storage.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"Inventory": "",
-"Item": "",
-"Spell": "",
-"Storage": ""
+
 }
 
 [application]

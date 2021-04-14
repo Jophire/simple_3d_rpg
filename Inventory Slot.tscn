@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Inventory Slot.gd" type="Script" id=1]
-
-[node name="Inventory Slot" type="BoneAttachment"]
-script = ExtResource( 1 )
-
-[node name="Attachment point" type="Position3D" parent="."]
